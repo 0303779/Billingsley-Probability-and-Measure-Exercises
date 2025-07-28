@@ -8,6 +8,7 @@
 \usepackage{amsmath,amsthm,amssymb,mathtools,graphicx,enumitem,hyphenat,float}
 \usepackage{accents, mathabx, hyperref, chngcntr}
 \usepackage[linesnumbered, noline]{algorithm2e}
+\usepackage{xurl}
 % \graphicspath{ {./Images/} }
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \newcommand\ec[1]{\ensuremath{\mathbb{E}\left[#1\right]}}
@@ -127,8 +128,28 @@
     \end{enumerate}
 \end{exercise}
 \begin{proof}
-    TBD.
+Quelle: \url{https://math.stackexchange.com/questions/189881/proof-to-motivate-the-need-for-measure-theoretic-probability}\\
+
+If we have 2 events $\mathcal{A}_1, \mathcal{A}_2$, the events will lies in $\mathcal{A}_1 \bigcap \mathcal{A}_2, \mathcal{A}_1^c \bigcap \mathcal{A}_2, \mathcal{A}_1 \bigcap \mathcal{A}_2^c, \mathcal{A}_1^c \bigcap \mathcal{A}_2^c$, and each event would have probability at most $2^{-2}$.
+
+Similarly, if there are n events, they should be lies in sets $\mathcal{A}_1^{\epsilon_i} \bigcap \cdots\bigcap \mathcal{A}_n^{\epsilon_i}, i = 1,2,\cdots, \epsilon_i \in \{0,1\}, \mathcal{A}^0 = \mathcal{A}, \mathcal{A}^1 = \mathcal{A}^c$. Each events with probability at most $2^{-n}$.
+
+$\lim_{n \to \infty} 2^{-n} = 0$, discrete probability space cant not have $\Pr(\omega) = 0$ everywhere since the we must have $\sum_{i=1}^n \Pr(\omega_i) =1$.
+
+Thus, a discrete probability space cannot contain an infinite sequecne $\mathcal{A}_1, \mathcal{A}_2,\cdots$ of independent events each of probability $\frac{1}{2}$
 \end{proof}
+
+\begin{reflection}{1.1a}
+In diesem diskreten Wahrscheinlichkeiten beginnen wir mit der Leplace Wahrscheinlichkeiten günstige durch mögliche Wahrscheinlichkeiten $ \frac{P(\A)}{P(\Om)}$. Der Kern des Beweises ist das keine Division Null ergibt. Die Summe aller Wahrscheinlichkeiten ist eins.
+\end{reflection}
+\begin{proof}
+Let $x$ be an element of the probability space $X$.  Let $p$ be the probability of the event $\{x\}$.  Consider the $2^n$ pairwise disjoint sets of the form
+$A_1^{\varepsilon_1}\cap\dots\cap A_n^{\varepsilon_n}$ where for each $i\in\{1,\dots,n\}$, $\varepsilon_i\in\{0,1\}$, $A_i^0=A$ and $A^1_i=X\setminus A$.
+Each of these sets has probability $2^{-n}$ and $x$ is an element of one of them.
+It follows that $p\leq 2^{-n}$.  Since this holds for every $n$, $p=0$.
+So every singleton in your space has probability $0$ and hence the space is not discrete.
+\end{proof}
+
 
 \begin{exercise}{1.2}
     Show that $N$ and $N^c$ are dense in $(0, 1]$.
