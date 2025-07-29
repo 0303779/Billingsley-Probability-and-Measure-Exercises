@@ -150,6 +150,41 @@ It follows that $p\leq 2^{-n}$.  Since this holds for every $n$, $p=0$.
 So every singleton in your space has probability $0$ and hence the space is not discrete.
 \end{proof}
 
+\begin{proof}
+Quelle: \url{https://math.stackexchange.com/questions/1129579/show-that-if-the-sum-of-an-diverges-no-discrete-probability-space-can-contain-i/1129632#1129632}\\
+
+Let's do not consider the $P_n=0$ cases, because if the empty set is independent with any sets.
+
+So , consider the discrete probability space, contains at most countable many points with each point assigned with a positive probability.
+
+All the probabilities sum up to 1.
+
+Now $\sum a_n$ diverge,
+
+suppose $A_n$ are the events,
+
+they are independent, therefore $P(\bigcap_n A_n)=\prod_n a_n=0$, here because $p_n$ are at most $\frac{1}{2}$,
+
+then $\bigcap_n A_n$ is simply empty in our discrete setting.
+
+(*) indeed, if we choose any infinite $A_n$ their intersection will be empty.
+
+Use Borel-Cantelli lemma, $\sum a_n$ diverge then $\limsup_{n\rightarrow\infty} A_n$ will have measure $1$, in our discrete setting this means $\limsup_{n\rightarrow\infty} A_n$ is the whole set.
+
+This would imply that any point in our set will be contained in infinitely many $A_n's$
+
+Contradict with (*)
+
+
+The whole point is that in discrete probability space, measure 0 set is empty and measure 1 set is the whole set. (of course, the points with 0 probability we can simply delete them without changing anything).
+
+Hope it will help. :D
+\end{proof}
+
+
+\begin{reflection}{1.1b}
+Die $A_n$ sind paarweise disjunkt. Die Summe der $A_n$ divergiert. Das bedeutet die $A_n$ werden größer und werden irgendwann zu $\Om$. Wenn alle $\Om_n$ sind, können sie nicht mehr p.d. sein.
+\end{reflection}
 
 \begin{exercise}{1.2}
     Show that $N$ and $N^c$ are dense in $(0, 1]$.
